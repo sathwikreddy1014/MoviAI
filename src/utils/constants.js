@@ -9,3 +9,12 @@ export const API_OPTIONS = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NGE3YzAyNWY0OGNlMDQ0MTc1NzkyODM1ZjFlMGFlYSIsIm5iZiI6MTc0OTEwNTQ0My45NTEsInN1YiI6IjY4NDEzYjIzNmQ1ODA5YjFmYjI4YTIzMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.12Y-1vbZCoarqBxycz-3FUNhxBjFGc56mxKAh0zdKHk'
   }
 };
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/"
+
+export const BG_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/af2fac72-d956-4952-8686-4d45d359d78c/web/IN-en-20250526-TRIFECTA-perspective_5db3e163-56f7-47c7-9a65-b79b9d76bf24_large.jpg"
+
+export const SUPPORTED_LANGAGES = [{ identifier: "english", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "telugu", name: "Telugu"}
+]

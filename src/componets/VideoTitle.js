@@ -1,16 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { FaPlay } from 'react-icons/fa';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
-const VideoTitle = ({title , overview}) => {
+const VideoTitle = ({ title, overview }) => {
   return (
-    <div className = "pt-[20%] px-16 absolute bg-gradient-to-r from-black w-screen aspect-video text-white">
-      <h1 className = "text-4xl font-bold">{title}</h1>
-      <p className = "text-lg w-3/12">{overview}</p>
-      <div className = "mt-4 text-xl">
-        <button className = "bg-orange-50 text-black w-32 h-12 rounded-lg hover:opacity-40 ">▶️ Play</button>
-        <button className = "bg-gray-600 text-black w-40 h-12 ml-4 rounded-lg hover:opacity-40">More info</button>
+    <div className="text-white space-y-4">
+      <h1 className="text-5xl font-bold drop-shadow-md">{title}</h1>
+      <p className="text-lg max-w-xl line-clamp-4 drop-shadow-md">{overview}</p>
+      <div className="flex space-x-4">
+        <button className="flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 text-lg rounded hover:bg-opacity-80 transition">
+          <FaPlay /> Play
+        </button>
+        <button className="flex items-center gap-2 bg-gray-600 text-white font-semibold px-6 py-3 text-lg rounded hover:bg-gray-500 transition">
+          <AiOutlineInfoCircle size={22} /> More Info
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VideoTitle
+export default VideoTitle;
