@@ -13,4 +13,4 @@ const language = {
     }
 };
 
-export default language
+export default language;

@@ -18,3 +18,5 @@ export const SUPPORTED_LANGAGES = [{ identifier: "english", name: "English" },
   { identifier: "hindi", name: "Hindi" },
   { identifier: "telugu", name: "Telugu"}
 ]
+
+export const GEMINI_API_KEY = "AIzaSyDzFLbDp-NodRiU-ljqdJ4Vc3bfbbXWBws"
