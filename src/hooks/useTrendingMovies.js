@@ -1,23 +1,26 @@
-import { API_OPTIONS } from './../utils/constants';
-import { useDispatch } from 'react-redux';
-import { addTrendingMovies } from "../utils/moviesSlice"
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { API_OPTIONS } from '../utils/constants';
+import { addTrendingMovies } from '../utils/moviesSlice';
 
 const useTrendingMovies = () => {
-    const dispatch = useDispatch()
-  const checktrendingMovies = useSelector((store) => store.movies.trendingMovies)
+  const dispatch = useDispatch();
+  const checktrendingMovies = useSelector((store) => store.movies.trendingMovies);
+
   const trendingMovies = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/trending/movie/day', API_OPTIONS)
-    const json = await data.json()
-    //console.log(json.results);
-    dispatch(addTrendingMovies(json.results))
-  }
+    try {
+      const data = await fetch('https://api.themoviedb.org/3/trending/movie/day', API_OPTIONS);
+      const json = await data.json();
+      dispatch(addTrendingMovies(json.results));
+    } catch (error) {
+      console.error("Failed to fetch trending movies:", error);
+    }
+  };
 
   useEffect(() => {
-    !checktrendingMovies && trendingMovies()
-  },[])
-}
+    !checktrendingMovies && trendingMovies();
+  }, []);
+};
 
-export default useTrendingMovies
+export default useTrendingMovies;
