@@ -1,3 +1,7 @@
+# Project Setup
+- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+
+
 # Netflix GPT
 
 - Create React App
@@ -63,7 +67,7 @@
     - Search Bar
     - Movie Suggestions
 
+# ----------- SNAPSHOT -----------#
 
 
-# Project Setup
-- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+![Alt text](images/first.png)
