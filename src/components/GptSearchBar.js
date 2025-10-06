@@ -1,13 +1,9 @@
-
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import language from '../utils/languageconstants';
 import useGptMovieSearch from '../hooks/useGptMovieSearch';
 import { Search, Loader } from 'lucide-react';
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
-  const langKey = useSelector((store) => store.config.language);
   const { searchMovies } = useGptMovieSearch();
   const [isSearching, setIsSearching] = useState(false);
 
@@ -45,9 +41,9 @@ const GptSearchBar = () => {
             <div className="relative flex-grow">
               <input
                 ref={searchText}
-                className="w-full px-6 py-4 sm:py-5 lg:py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-lg sm:text-xl transition-all duration-200"
+                className="w-full px-6 py-4 sm:py-5 lg:py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg sm:text-xl transition-all duration-200"
                 type="text"
-                placeholder={language[langKey]?.gptPlaceholder || "What kind of movies are you looking for?"}
+                placeholder="Search for movies..."
                 onKeyPress={handleKeyPress}
                 disabled={isSearching}
               />
@@ -56,7 +52,7 @@ const GptSearchBar = () => {
             
             <button
               type="button"
-              className="bg-red-600 hover:bg-red-700 disabled:bg-red-600/50 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-lg sm:text-xl font-semibold transition-all duration-200 flex items-center gap-3 min-w-[120px] justify-center"
+              className="bg-orange-600 hover:bg-orange-700 disabled:bg-red-600/50 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-lg sm:text-xl font-semibold transition-all duration-200 flex items-center gap-3 min-w-[120px] justify-center"
               onClick={handleSearch}
               disabled={isSearching}
             >
@@ -68,7 +64,7 @@ const GptSearchBar = () => {
               ) : (
                 <>
                   <Search className="h-5 w-5" />
-                  <span className="hidden sm:inline">{language[langKey]?.search || "Search"}</span>
+                  <span className="hidden sm:inline">Search</span>
                 </>
               )}
             </button>

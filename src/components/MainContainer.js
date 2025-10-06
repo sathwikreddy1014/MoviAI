@@ -11,6 +11,8 @@ const MainContainer = () => {
   const mainMovie = movies[randomIndex];
   const { overview, original_title, id } = mainMovie;
 
+  
+
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -31,7 +33,7 @@ const MainContainer = () => {
         <div className="absolute inset-0 flex items-center z-20">
           <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-16">
             <div className="max-w-2xl lg:max-w-3xl">
-              <VideoTitle title={original_title} overview={overview} />
+              <VideoTitle  title={original_title} overview={overview} />
             </div>
           </div>
         </div>

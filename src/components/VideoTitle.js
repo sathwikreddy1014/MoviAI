@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Play, Info, Volume2, VolumeX, Plus, ThumbsUp, Share } from 'lucide-react';
 
 const VideoTitle = ({ title, overview }) => {
+
+  
   const [isVisible, setIsVisible] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -14,7 +16,7 @@ const VideoTitle = ({ title, overview }) => {
     <div className={`space-y-4 sm:space-y-6 lg:space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       {/* Featured Badge */}
       <div className="flex items-center gap-3">
-        <div className="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           Featured
         </div>
         <div className="flex items-center gap-1">
@@ -38,7 +40,7 @@ const VideoTitle = ({ title, overview }) => {
             HD
           </span>
           <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded border border-blue-500/30">
-            2024
+            2025
           </span>
           <span className="bg-purple-500/20 text-purple-400 px-2 py-1 rounded border border-purple-500/30">
             Action

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import MovieCard from './MovieCard';
-import { ChevronLeft, ChevronRight, Sparkles, Award } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const MovieList = ({ title, movies, gradient = "from-blue-500 to-indigo-600", index = 0 }) => {
   const scrollRef = useRef(null);
