@@ -65,7 +65,7 @@ const Header = () => {
             <Heart className="h-5 w-5" />
           </button>
 
-          {/* Hardcoded User Avatar */}
+          {/* User Avatar */}
           <img
             src={USER_AVATAR}
             alt="User Avatar"

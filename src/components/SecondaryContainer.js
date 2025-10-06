@@ -60,11 +60,6 @@ const SecondaryContainer = () => {
                     {category.description}
                   </p>
                 </div>
-                
-                {/* View All Button */}
-                <button className="ml-auto text-sm text-gray-400 hover:text-white transition-colors duration-300 opacity-0 group-hover:opacity-100">
-                  View All →
-                </button>
               </div>
               
               {/* Movie List */}
