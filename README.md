@@ -2,9 +2,12 @@
 # Project Setup
 Before starting the project, create a .env file in the project root and add your API keys:
 
-REACT_APP_TMDB_KEY=your_tmdb_api_key
 
-REACT_APP_OPENAI_KEY=your_openai_api_key
+REACT_APP_GEMINI_API_KEY = your_openai_api_key
+
+REACT_APP_TMDB_BEARER_TOKEN = your_tmdb_token
+
+
 
 # A brief description of the project
 MoviAI is a Movie-Library, Netflix-style movie discovery app built with React, React Router, Tailwind CSS, and Redux Toolkit. It integrates TMDB for real-time movie data and OpenAI for GPT-powered search suggestions. Users can browse now playing, top rated, trending, and upcoming lists, and watch autoplaying/muted trailers.
@@ -53,3 +56,7 @@ Tailwind CSS enables fast, responsive UI development.
 Environment variables are used for API keys and are not committed to version control.
 
 Authentication note: I previously implemented login and logout using Firebase, but removed the feature since it was not part of the project requirements.
+
+
+# NOTE : 
+- Eslint Will throw Warnings Ignore them Because I want to render only Once so ihave not included things in the dependecy Array
