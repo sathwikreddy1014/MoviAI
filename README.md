@@ -1,72 +1,55 @@
+# MoviAI
 # Project Setup
-- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+Before starting the project, create a .env file in the project root and add your API keys:
+
+REACT_APP_TMDB_KEY=your_tmdb_api_key
+
+REACT_APP_OPENAI_KEY=your_openai_api_key
+
+# A brief description of the project
+MoviAI is a Movie-Library, Netflix-style movie discovery app built with React, React Router, Tailwind CSS, and Redux Toolkit. It integrates TMDB for real-time movie data and OpenAI for GPT-powered search suggestions. Users can browse now playing, top rated, trending, and upcoming lists, and watch autoplaying/muted trailers.
+
+# Set up and run locally (Windows)
+Install Git on your desktop if it isn’t already installed.
+Open the GitHub repository and copy the HTTPS clone URL.
+Open Terminal or Command Prompt.
+Navigate to the directory where you want the project:
+Use dir to list folders.
+Use cd foldername to enter the desired folder.
+Clone the repository:
+git clone <paste-https-url-here>
+Open the project in VS Code:
+code .
+In VS Code, open a new terminal.
+Install dependencies:
+npm install
+Start the app:
+npm start
+The app will run at http://localhost:3000.
+
+# Running tests
+This project uses Jest and React Testing Library for unit and integration tests. Test files are placed alongside corresponding components and slices (e.g., Wishlist.test.js).
+
+Install test dependencies:
+
+npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+
+Run all tests:
+
+npm test
 
 
-# Netflix GPT
+# Assumptions and design choices
+TMDB is the source of truth for movie metadata, artwork, and categorizations (now playing, top rated, trending, upcoming).
 
-- Create React App
-- Configured TailwindCSS 
-- Header
-- Routing of App
-- Login Form
-- Sign up Form
-- Form Validation
-- useRef Hook
-- Firebase Setup
-- Deploying our app to production
-- Create SignUp User Account
-- Implement Sign In user Api
-- Created Redux Store with userSlice
-- Implement
-- Update Profile
-- BugFix: Sign up user displayName and profile picture update
-- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
-- Unsubscibed to the onAuthStateChanged callback
-- Add hardcoded values to the constants file
-- Regiter TMDB API & create an app & get access token
-- Get Data from TMDB now playing movies list API
-- Custom Hook for Now Playing Movies
-- Create movieSlice
-- Update Store with movies Data
-- Planning for MainContauiner & secondary container
-- Fetch Data for Trailer Video
-- Update Store with Trailer Video Data
-- Embedded the Yotube video and make it autoplay and mute
-- Tailwind Classes to make Main Container look awesome
-- Build Secondary Component
-- Build Movie List
-- build Movie Card
-- TMDB Image CDN URL
-- Made the Browsre page amazing with Tailwind CSS
-- usePopularMovies Custom hook
-- GPT Search Page
-- GPT Search Bar
-- (BONUS) Multi-language Feature in our App)
-- Get Open AI Api Key 
-- Gpt Search API Call
-- fetched gptMoviesSuggestions from TMDB
-- created gptSlice added data
-- Resused Movie List component to make movie suggestion container
-- Memoization
-- Added .env file
-- Adding .env file to gitignore
-- Made our Site Responsive
+OpenAI GPT is used for natural-language movie queries and suggestions; final movie details are resolved via TMDB.
 
-# Features
-- Login/Sign Up
-    - Sign In /Sign up Form
-    - redirect to Browse Page
-- Browse (after authentication)
-    - Header
-    - Main Movie
-        - Tailer in Background
-        - Title & Description
-        - MovieSuggestions
-            - MovieLists * N 
-- NetflixGPT
-    - Search Bar
-    - Movie Suggestions
+React + Redux Toolkit provides centralized, predictable state management (movies, wishlist, GPT suggestions).
 
-# ----------- SNAPSHOT -----------#
+React Router is used for clean navigation and route-based organization.
 
+Tailwind CSS enables fast, responsive UI development.
 
+Environment variables are used for API keys and are not committed to version control.
+
+Authentication note: I previously implemented login and logout using Firebase, but removed the feature since it was not part of the project requirements.
