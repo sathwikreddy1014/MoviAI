@@ -1,6 +1,5 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router';
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { Search, Home, Sparkles, Heart, LogOut } from 'lucide-react';
 import { USER_AVATAR } from '../utils/constants';
@@ -11,7 +10,10 @@ const Header = () => {
   const location = useLocation();
   const showConfig = useSelector((store) => store.gpt.showgptsearch);
 
-  const handleGptSearchClick = () => dispatch(toggleGptSearchView());
+  const handleGptSearchClick = () =>{
+     dispatch(toggleGptSearchView());
+     window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll to top
+  }
   const handleExit = () => {
     // Add any cleanup if needed
     navigate('/browse'); // Redirect to home or exit page

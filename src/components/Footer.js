@@ -1,6 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-black/90 text-gray-300 relative z-10">
+    <footer className="bg-black/90 text-gray-300 relative z-10 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-gray-700">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0">
           

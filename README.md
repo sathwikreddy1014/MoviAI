@@ -17,7 +17,7 @@
 - Create SignUp User Account
 - Implement Sign In user Api
 - Created Redux Store with userSlice
-- Implemented Sign out 
+- Implement
 - Update Profile
 - BugFix: Sign up user displayName and profile picture update
 - BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
@@ -70,4 +70,3 @@
 # ----------- SNAPSHOT -----------#
 
 
-![Alt text](images/Screenshot (134).png)

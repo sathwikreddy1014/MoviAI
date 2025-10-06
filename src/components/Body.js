@@ -1,9 +1,8 @@
-import React from "react";
-import { RouterProvider, createBrowserRouter, Outlet, Navigate } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet, Navigate } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
-import Browse from "./Browse";
-import Wishlist from "./Wishlist";
+import Browse from "../Pages/Browse";
+import Wishlist from "../Pages/Wishlist";
 
 const AppLayout = () => (
   <div className="min-h-screen flex flex-col bg-black text-white">
@@ -34,3 +33,4 @@ const Body = () => {
 };
 
 export default Body;
+ 

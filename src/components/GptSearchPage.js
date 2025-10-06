@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { BG_URL } from '../utils/constants';
 import GptSearchBar from './GptSearchBar';
 import GptSuggestions from './GptSuggestions';

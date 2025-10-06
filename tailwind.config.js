@@ -10,6 +10,15 @@ module.exports = {
         'netflix-black': '#141414',
         'netflix-red': '#e50914',
       },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 1.5s infinite',
+      },
     },
     screens: {
       'sm': '640px',
