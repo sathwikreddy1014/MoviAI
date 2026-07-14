@@ -16,7 +16,7 @@ const GptSuggestions = () => {
     } catch {
       movieNamesArray = String(movieNames)
         .split(',')
-        .map((name) => name.replace(/^\[?\"?|\\"?\]?$/g, '').trim());
+        .map((name) => name.replace(/^\[?"?|"?\]?$/g, "").trim());
     }
   }
 

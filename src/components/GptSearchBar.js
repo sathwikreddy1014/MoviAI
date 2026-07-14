@@ -1,25 +1,33 @@
-import React, { useRef, useState } from 'react';
-import useGptMovieSearch from '../hooks/useGptMovieSearch';
-import { Search, Loader } from 'lucide-react';
+import React, { useRef } from "react";
+import useGptMovieSearch from "../hooks/useGptMovieSearch";
+import { Search, Loader } from "lucide-react";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
-  const { searchMovies } = useGptMovieSearch();
-  const [isSearching, setIsSearching] = useState(false);
+
+  // ✅ use loading from hook
+  const { searchMovies, loading } = useGptMovieSearch();
 
   const handleSearch = async () => {
-    const query = searchText.current.value.trim();
+    if (loading) return; // prevent spam clicks
+
+    const query = searchText.current?.value?.trim();
     if (!query) return;
-    
-    setIsSearching(true);
+
     await searchMovies(query);
-    setIsSearching(false);
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !loading) {
       handleSearch();
     }
+  };
+
+  const handleExampleClick = (example) => {
+    if (loading) return;
+
+    searchText.current.value = example;
+    searchMovies(example);
   };
 
   return (
@@ -44,19 +52,19 @@ const GptSearchBar = () => {
                 className="w-full px-6 py-4 sm:py-5 lg:py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg sm:text-xl transition-all duration-200"
                 type="text"
                 placeholder="Search for movies..."
-                onKeyPress={handleKeyPress}
-                disabled={isSearching}
+                onKeyDown={handleKeyDown}
+                disabled={loading}
               />
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-gray-400" />
             </div>
-            
+
             <button
               type="button"
-              className="bg-orange-600 hover:bg-orange-700 disabled:bg-red-600/50 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-lg sm:text-xl font-semibold transition-all duration-200 flex items-center gap-3 min-w-[120px] justify-center"
+              className="bg-orange-600 hover:bg-orange-700 disabled:bg-red-600/50 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-lg sm:text-xl font-semibold transition-all duration-200 flex items-center gap-3 min-w-[140px] justify-center"
               onClick={handleSearch}
-              disabled={isSearching}
+              disabled={loading}
             >
-              {isSearching ? (
+              {loading ? (
                 <>
                   <Loader className="h-5 w-5 animate-spin" />
                   <span className="hidden sm:inline">Searching...</span>
@@ -79,16 +87,13 @@ const GptSearchBar = () => {
               "Sci-fi movies with time travel",
               "Romantic comedies from the 90s",
               "Action movies with superheroes",
-              "Horror movies in space"
+              "Horror movies in space",
             ].map((example, index) => (
               <button
                 key={index}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-sm hover:bg-white/20 transition-all duration-200"
-                onClick={() => {
-                  searchText.current.value = example;
-                  handleSearch();
-                }}
-                disabled={isSearching}
+                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-sm hover:bg-white/20 transition-all duration-200 disabled:opacity-50"
+                onClick={() => handleExampleClick(example)}
+                disabled={loading}
               >
                 {example}
               </button>

@@ -6,7 +6,7 @@ import { Heart } from 'lucide-react';
 const Wishlist = () => {
   const dispatch = useDispatch();
   const wishlist = useSelector(store => store?.wishlist?.items || []);
-
+  console.log("Wishlist:", wishlist);
   if (!wishlist.length) {
     return (
       <div className="flex items-center justify-center bg-gray-900 min-h-screen p-6 text-white">
